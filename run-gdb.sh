@@ -131,7 +131,7 @@ elif [ "$1" != "vgdb" ]; then
      ld_preload_extra="/system/b2g/libdmd.so"
   fi
 
-   $ADB shell DMD=$dmd LD_LIBRARY_PATH=/system/b2g LD_PRELOAD=\"$ld_preload_extra /system/b2g/libmozglue.so\" TMPDIR=/data/local/tmp $GDBSERVER_ENV gdbserver --multi :$GDB_PORT $B2G_BIN $@ &
+   $ADB shell DMD=$dmd LD_LIBRARY_PATH=/system/b2g LD_PRELOAD=/system/b2g/libmozglue.so TMPDIR=/data/local/tmp $GDBSERVER_ENV gdbserver --multi :$GDB_PORT $B2G_BIN $@ &
 fi
 
 sleep 1
